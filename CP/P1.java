@@ -12,5 +12,6 @@ public class P1 {
         }else{
             System.out.print("no");
         }
+        sc.close();
     }
 }
