@@ -426,49 +426,125 @@ package PRACTICE;
 // }
 
 /* 2d arrays spiral array */
-public class practice {
-    public static void spiralPrint(int arr[][]){
-        int srow =0;
-        int erow =arr.length-1;
-        int scol =0;
-        int ecol =arr[0].length-1;
-        while(srow<=erow && scol<=ecol){
-            //top
-            for(int i=scol; i<=ecol; i++){
-                System.out.print(arr[srow][i]+" ");
-            }
-            //right
-            for(int j=srow+1; j<=erow; j++){
-                System.out.print(arr[j][ecol]+" ");
-            }
-            //bottom
-            for(int k=ecol-1; k>=scol; k--){
-                if(scol==ecol){
-                    break;
-                }
-                System.out.print(arr[erow][k]+" ");
-            }
-            //left
-            for(int l=erow-1; l>=srow+1; l--){
-                if(srow==erow){
-                    break;
-                }
-                System.out.print(arr[l][scol]+" ");
-            }
-            srow++;
-            scol++;
-            erow--;
-            ecol--;
+// public class practice {
+//     public static void spiralPrint(int arr[][]){
+//         int srow =0;
+//         int erow =arr.length-1;
+//         int scol =0;
+//         int ecol =arr[0].length-1;
+//         while(srow<=erow && scol<=ecol){
+//             //top
+//             for(int i=scol; i<=ecol; i++){
+//                 System.out.print(arr[srow][i]+" ");
+//             }
+//             //right
+//             for(int j=srow+1; j<=erow; j++){
+//                 System.out.print(arr[j][ecol]+" ");
+//             }
+//             //bottom
+//             for(int k=ecol-1; k>=scol; k--){
+//                 if(scol==ecol){
+//                     break;
+//                 }
+//                 System.out.print(arr[erow][k]+" ");
+//             }
+//             //left
+//             for(int l=erow-1; l>=srow+1; l--){
+//                 if(srow==erow){
+//                     break;
+//                 }
+//                 System.out.print(arr[l][scol]+" ");
+//             }
+//             srow++;
+//             scol++;
+//             erow--;
+//             ecol--;
 
+//         }
+//     }
+
+//     public static void main(String args[]){
+//         int arr[][] = {{1,2,3,4},
+//                         {5,6,7,8},{9,1,2,3},{4,5,6,7}};
+//         spiralPrint(arr);
+//     }
+// }
+
+/* move 1 to center of the array */
+import java.util.Scanner;
+
+public class MoveToCenter {
+
+    public static void moveToCenter(int[][] arr, int i, int j) {
+        // Target position for '1' is the center (2,2)
+        int targetRow = 2;
+        int targetCol = 2;
+
+        // Move row-wise
+        while (i != targetRow) {
+            if (i > targetRow) {
+                // Swap
+                int temp = arr[i][j];
+                arr[i][j] = arr[i - 1][j];
+                arr[i - 1][j] = temp;
+                i--;
+            } else if (i < targetRow) {
+                int temp = arr[i][j];
+                arr[i][j] = arr[i + 1][j];
+                arr[i + 1][j] = temp;
+                i++;
+            }
+        }
+
+        // Move column-wise
+        while (j != targetCol) {
+            if (j > targetCol) {
+                // Swap
+                int temp = arr[i][j];
+                arr[i][j] = arr[i][j - 1];
+                arr[i][j - 1] = temp;
+                j--;
+            } else if (j < targetCol) {
+                int temp = arr[i][j];
+                arr[i][j] = arr[i][j + 1];
+                arr[i][j + 1] = temp;
+                j++;
+            }
         }
     }
 
-    public static void main(String args[]){
-        int arr[][] = {{1,2,3,4},
-                        {5,6,7,8},{9,1,2,3},{4,5,6,7}};
-        spiralPrint(arr);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[][] arr = new int[5][5];
+
+        // Input the 5x5 matrix
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        // Find the position of '1' and move it to the center
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (arr[i][j] == 1) {
+                    moveToCenter(arr, i, j);
+                }
+            }
+        }
+
+        // Output the matrix
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
     }
 }
+
 
     
 
