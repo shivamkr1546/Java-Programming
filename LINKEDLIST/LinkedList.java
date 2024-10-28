@@ -319,8 +319,8 @@ public class LinkedList {
         // ll.addMiddle(2, 3);
         ll.print();
         // System.out.println(ll.size);
-        // ll.removeFirst();
-        // ll.print();
+        ll.removeFirst();
+        ll.print();
         // ll.removeLast();
         // ll.print();
         // System.out.println(ll.size);
