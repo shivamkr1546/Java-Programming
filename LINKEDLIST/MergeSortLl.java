@@ -1,5 +1,5 @@
 package LINKEDLIST;
-
+import java.util.*;
 public class MergeSortLl {
 
     public static class Node{
@@ -143,7 +143,7 @@ public class MergeSortLl {
     }
 
     public static void main(String args[]){
-        LinkedList ll = new LinkedList();
+        MergeSortLl ll = new MergeSortLl();
         ll.addFirst(1);
         ll.addFirst(2);
         ll.addFirst(3);
