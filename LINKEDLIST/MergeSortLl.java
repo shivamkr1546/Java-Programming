@@ -83,7 +83,7 @@ public class MergeSortLl {
         }
         System.out.println();
     }
-
+    //get mid
     private Node getMid(Node head){
         Node slow = head;
         Node fast = head.next;
@@ -94,7 +94,7 @@ public class MergeSortLl {
         }
         return slow;
     }
-
+    // merge linked list
     private Node merge(Node head1, Node head2){
         Node mergedLL = new Node(-1);
         Node temp = mergedLL;
@@ -126,7 +126,7 @@ public class MergeSortLl {
 
         return mergedLL.next;
     }
-
+    // merge sort
     public Node mergeSort(Node head){
         if(head == null || head.next == null){
             return head;
