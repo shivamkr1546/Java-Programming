@@ -1,7 +1,7 @@
 package LINKEDLIST;
 import java.util.*;
 public class ZigZagLl {
-    public static class Node{
+    public class Node{
         int data;
         Node next;
 
@@ -94,7 +94,7 @@ public class ZigZagLl {
             left = nextL;
         }
     }
-    public static void main(String[] args){
+    public static void main(String args[]){
         ZigZagLl ll = new ZigZagLl(); //creation of linked list 
         ll.addFirst(1);
         ll.addLast(2);
