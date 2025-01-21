@@ -63,7 +63,6 @@ public class CircularLL {
             }
             temp = temp.next;
         } while (temp != last.next);
-        System.out.println(item + "The given node is not present in the list");
     }
 
     // delete node
@@ -81,8 +80,7 @@ public class CircularLL {
     
         // Case 2: If the node to be deleted is the first node
         if (last.next.data == key) {
-            Node first = last.next;
-            last.next = first.next; // Update last's next to skip the first node
+            last.next = last.next.next; // Update last's next to skip the first node
             return;
         }
     
