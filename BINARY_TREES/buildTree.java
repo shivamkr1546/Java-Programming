@@ -92,6 +92,29 @@ public class buildTree { // O(n) complexity for tree construction
                 }
             }
         }
+
+        //Level Order Traversal without using null markers
+        public static void levelOrder(Node root) {
+            if (root == null) return;
+
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+
+            while (!q.isEmpty()) {
+                int levelSize = q.size();
+
+                for (int i = 0; i < levelSize; i++) {
+                    Node currNode = q.remove();
+                    System.out.print(currNode.data + " ");
+
+                    if (currNode.left != null) q.add(currNode.left);
+                    if (currNode.right != null) q.add(currNode.right);
+                }
+
+                // System.out.println(); // uncomment for level-wise printing
+            }
+        }
+
     }
 
     // Function to find the height of the tree
